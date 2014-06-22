@@ -6,14 +6,19 @@
 makeCacheMatrix <- function(x = matrix()) {
   # set the cached value to NULL, indicating invalid cache
   inv <- NULL
-  # data setter
+  # matrix data setter
   set <- function(y) {
     x <<- y
-    inv <<- NULL # invalidate cache
+    # invalidate cache
+    inv <<- NULL
   }
+  # getter for matrix data
   get <- function() x
+  # setter for inverse cache
   setInv <- function(inverse) inv <<- inverse
+  # getter for store inverse (NULL if empty!)
   getInv <- function() inv
+  # return full data structure with functions
   list(
     set = set,
     get = get,
@@ -28,13 +33,18 @@ makeCacheMatrix <- function(x = matrix()) {
 cacheSolve <- function(x, ...) {
   # try retrieve from cache
   inv <- x$getInv()
-  if (!is.null(inv)) { # HIT!
+  ## HIT!
+  if (!is.null(inv)) {
     message("retrieving matrix from cache")
     return(inv)
   }
   ## miss
+  # load matrix data
   mat <- x$get()
+  #compute
   inv <- solve(mat, ...)
-  x$setInv(inv) # store
+  # store
+  x$setInv(inv)
+  # return computed value
   inv
 }
