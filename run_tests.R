@@ -1,5 +1,6 @@
-library('RUnit')
+## Run this file to test an example
 
+library('RUnit')
 source('cachematrix.R')
 
 test.suite <- defineTestSuite(
