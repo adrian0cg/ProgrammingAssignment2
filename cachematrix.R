@@ -1,14 +1,14 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Module that allows cached comutations upon a Matrix
+## Out of scope: Checks for changed data
 
-## Write a short comment describing this function
+## Creates a data structure, that holds the data, the cache and getters/setters for the values
 
 makeCacheMatrix <- function(x = matrix()) {
 
 }
 
 
-## Write a short comment describing this function
+## solves the computation possibly using a cached value
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
